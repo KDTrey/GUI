@@ -21,8 +21,8 @@ import javafx.stage.Stage;
 import javafx.scene.layout.BorderPane;
 
 
-//Lets you know how many kalories to consume to maintain your weight
-public class BonusQuiz2 extends Application {
+//Lets you know how many calories to consume to maintain your weight
+public class CalorieCounter extends Application {
   private TextField tfAge = new TextField();
   private TextField tfHeight = new TextField();
   private TextField tfWeight = new TextField();

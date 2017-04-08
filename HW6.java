@@ -1,7 +1,10 @@
-package HW;
-
+/**********************
+* Purpose: Prompts user for a string and returns the string printed backwards
+* using a Stack
+*
+**********************/
 import java.util.Scanner;
-public class HW6{
+public class printBackwards{
 
 	public static void main(String[] args) {
 		Stack<Character> inStack = new Stack<>();

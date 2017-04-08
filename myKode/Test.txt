@@ -1,0 +1,130 @@
+package myKode;
+
+
+import java.io.File;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Stack;
+import java.util.TreeMap;
+
+
+
+public class MyKode {
+	public static void main(String [] args) throws Exception{
+		String filename = args[0];
+
+		File file = new File(filename);
+		if(file.exists())
+		{
+			System.out.println(checkSymbol(file));
+		}
+	}
+
+
+
+
+	public static boolean checkSymbol(File file) throws Exception{
+		
+
+		Scanner scan = new Scanner(file);
+
+		Stack<Character> symbol = new Stack<>();
+
+
+
+		while(scan.hasNext())
+		{
+			String tokens = scan.next();
+
+			for(int i = 0; i < tokens.length(); i++)
+			{
+
+				if(tokens.charAt(i) == '(' || tokens.charAt(i) == '{' ||
+						tokens.charAt(i) == '[' )
+				{
+					symbol.push(tokens.charAt(i));
+					System.out.println(tokens.charAt(i));
+				}
+
+
+				else if(tokens.charAt(i) == ')')
+				{
+					if(symbol.isEmpty() || !(symbol.peek() == '('))
+					{
+						System.out.println("1");
+						return false;
+					}
+					symbol.pop();
+					continue;
+				}
+				else if(tokens.charAt(i) == '}')
+				{
+					if(symbol.isEmpty() || !(symbol.peek() == '{'))
+					{	System.out.println("2");
+						return false;
+					}
+					symbol.pop();
+					continue;
+				}
+				else if(tokens.charAt(i) == ']')
+				{
+					if(symbol.isEmpty() || !(symbol.peek() == '['))
+					{	System.out.println("3");
+						return false;
+					}
+					symbol.pop();
+					continue;
+				}
+
+			}
+		}
+		if(!symbol.isEmpty()){
+			return false;
+		}
+
+		return true;
+	}
+
+
+	public void kountOccurence(String file){
+		Map<String, Integer> map = new TreeMap<>();
+
+		String keywordString = "abstract continue for new switch assert default"
+				+ "goto	package	synchronized "
+				+ "boolean do if private this"
+				+ "break double	implements	protected throw"
+				+ "byte	else import	public throws"
+				+ "case	enum instanceof	return	transient"
+				+ "catch extends int short try"
+				+ "char	final interface	static	void"
+				+ "class finally long strictfp volatile"
+				+ "const float	native super while";
+
+
+
+		String[] keywords = keywordString.split("[\\s+\\p{P}]");
+
+		for(int i = 0; i < keywords.length; i++){
+			String key = keywords[i];
+
+			if(key.length() > 0)
+			{
+				if(!map.containsKey(key))
+				{
+					map.put(key, 1);
+				}
+				else
+				{
+					int value = map.get(key);
+					value++;
+					map.put(key, value);
+				}
+			}
+		}
+
+		map.forEach((key, value) -> System.out.println(key + value));
+	}
+
+}
+
+

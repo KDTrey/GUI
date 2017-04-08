@@ -3,8 +3,8 @@ import java.util.Stack;
 import java.util.ArrayList;
 import java.util.Scanner;
 /****************************************
- * Purpose: Evaluate an expression in Postfix notation
- * Author: Tony Adkins
+ * Purpose: Evaluate an expression in Postfix or Infix notation
+ * Author: Dominique Adkins
  * Course: 1302 B
  * Date: 10/24/16
  *

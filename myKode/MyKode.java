@@ -1,9 +1,8 @@
-package myKode;
 /****************************************
  * Purpose: check whether a Java source-code file
  * has correct pairs of grouping symbols
  * Also display the frequency of each keyword used in the program
- * Author: Tony Adkins
+ * Author: Dominique Adkins
  * Course: 1302 B
  * Date: 11/2/16
  *
@@ -18,7 +17,7 @@ import java.util.TreeMap;
 
 
 
-public class MyKode {
+public class MyCode {
 	public static void main(String [] args) throws Exception{
 		String filename = args[0];
 
@@ -26,7 +25,7 @@ public class MyKode {
 		if(file.exists())
 		{
 			System.out.println(checkSymbol(file));
-			kountOccurence(file);
+			countOccurence(file);
 		}
 	}
 
@@ -97,7 +96,7 @@ public class MyKode {
 	}
 
 
-	public static void kountOccurence(File file){
+	public static void countOccurence(File file){
 
 		Scanner scan;
 		try

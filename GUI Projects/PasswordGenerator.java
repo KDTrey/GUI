@@ -76,9 +76,8 @@ public class PasswordGenerator extends Application {
       
       if(chkNum.isSelected())
       {
-         int numberLimit = Integer.parseInt(tfNumbers.getText());
          String number = "";
-         for(int i = 0; i < numberLimit; i++)
+         for(int i = 0; i < Integer.parseInt(tfNumbers.getText()); i++)
          {
             //assigns the amount of digits to number
             number += String.valueOf((int)(Math.random() * 10));
@@ -89,13 +88,11 @@ public class PasswordGenerator extends Application {
       if(chkLetters.isSelected())
       {
          String str = "abcdefghijklmnopqrstuvwxyz";
-         int limit = str.length();
          Random rnd = new Random();
          int letterLimit = Integer.parseInt(tfLetters.getText());
          for(int i = 0; i < letterLimit; i++)
          {
-            int x = rnd.nextInt(limit);
-            letters += str.charAt(x);
+            letters += str.charAt(rnd.nextInt(str.length()));
          }
          password.append(letters);
       }
@@ -103,13 +100,10 @@ public class PasswordGenerator extends Application {
       {
          char[] special = {'!','@','#','$','%','^','&','*','-','+','/'};
          String character = "";
-         int limit = special.length;
          Random rnd = new Random();
-         int specialLimit = Integer.parseInt(tfSpecial.getText());
-         for(int i = 0; i < specialLimit; i++)
+         for(int i = 0; i < Integer.parseInt(tfSpecial.getText()); i++)
          {
-            int x = rnd.nextInt(limit);
-            character += special[x];
+            character += special[rnd.nextInt(special.length)];
          }
          password.append(character);
       }
